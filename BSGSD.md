@@ -28,12 +28,12 @@ Clients need to send a single line and wait for reply
 
 Format of the client request:
 ```
-<publickey> <range from>:<range to>
+<ripemd160> <range from>:<range to>
 ```
 example puzzle 63
 
 ```
-0365ec2994b8cc0a20d40dd69edfe55ca32a54bcbbaa6b0ddcff36049301a54579 4000000000000000:8000000000000000
+ef58afb697b094423ce90721fbb19a359ef7c50e 4000000000000000:8000000000000000
 ```
 The search is done Sequentialy Client need to knows more o less the time expect time to solve.
 
@@ -72,10 +72,10 @@ Now we can connect it in annother terminal with `netcat` as client, this server 
 
 command:
 ```
-time echo "0365ec2994b8cc0a20d40dd69edfe55ca32a54bcbbaa6b0ddcff36049301a54579 4000000000000000:8000000000000000" | nc -v localhost 8080
+time echo "ef58afb697b094423ce90721fbb19a359ef7c50e 4000000000000000:8000000000000000" | nc -v localhost 8080
 ```
 ```
-time echo "0365ec2994b8cc0a20d40dd69edfe55ca32a54bcbbaa6b0ddcff36049301a54579 4000000000000000:8000000000000000" | nc -v localhost 8080
+time echo "ef58afb697b094423ce90721fbb19a359ef7c50e 4000000000000000:8000000000000000" | nc -v localhost 8080
 localhost.localdomain [127.0.0.1] 8080 (http-alt) open
 7cce5efdaccf6808
 real    0m7.551s
@@ -87,7 +87,7 @@ If you notice the answer from the server is `7cce5efdaccf6808`
 **Other example `404 Not Found`:**
 
 ```
-time echo "0233709eb11e0d4439a729f21c2c443dedb727528229713f0065721ba8fa46f00e 4000000000000000:8000000000000000" | nc -v localhost 8080
+time echo "ef58afb697b094423ce90721fbb19a359ef7c50e 4000000000000000:8000000000000000" | nc -v localhost 8080
 localhost.localdomain [127.0.0.1] 8080 (http-alt) open
 404 Not Found
 real    0m7.948s
@@ -148,7 +148,7 @@ host = 'localhost'  # Change this to the server's hostname or IP address
 port = 8080       # Change this to the server's port number
 
 # Message to send
-message = '0365ec2994b8cc0a20d40dd69edfe55ca32a54bcbbaa6b0ddcff36049301a54579 4000000000000000:8000000000000000'
+message = 'ef58afb697b094423ce90721fbb19a359ef7c50e 4000000000000000:8000000000000000'
 
 # Number of iterations in the loop
 num_iterations = 5
